@@ -2,8 +2,10 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Notifications\NotifiableandONEBABpppopYYYY;
+use Illuminate\Notifications\NotifiableandONEBABYYYY;
 
 class User extends Authenticatable
 {

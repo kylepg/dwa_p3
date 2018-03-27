@@ -1,0 +1,277 @@
+{
+    "tms": {
+        "si": "42016",
+        "t": [
+            {
+                "tid": 1610612737,
+                "di": "Southeast",
+                "co": "East",
+                "sta": "GA",
+                "ta": "ATL",
+                "tn": "Hawks",
+                "tc": "Atlanta"
+            },
+            {
+                "tid": 1610612738,
+                "di": "Atlantic",
+                "co": "East",
+                "sta": "MA",
+                "ta": "BOS",
+                "tn": "Celtics",
+                "tc": "Boston"
+            },
+            {
+                "tid": 1610612739,
+                "di": "Central",
+                "co": "East",
+                "sta": "OH",
+                "ta": "CLE",
+                "tn": "Cavaliers",
+                "tc": "Cleveland"
+            },
+            {
+                "tid": 1610612740,
+                "di": "Southwest",
+                "co": "West",
+                "sta": "LA",
+                "ta": "NOP",
+                "tn": "Pelicans",
+                "tc": "New Orleans"
+            },
+            {
+                "tid": 1610612741,
+                "di": "Central",
+                "co": "East",
+                "sta": "IL",
+                "ta": "CHI",
+                "tn": "Bulls",
+                "tc": "Chicago"
+            },
+            {
+                "tid": 1610612742,
+                "di": "Southwest",
+                "co": "West",
+                "sta": "TX",
+                "ta": "DAL",
+                "tn": "Mavericks",
+                "tc": "Dallas"
+            },
+            {
+                "tid": 1610612743,
+                "di": "Northwest",
+                "co": "West",
+                "sta": "CO",
+                "ta": "DEN",
+                "tn": "Nuggets",
+                "tc": "Denver"
+            },
+            {
+                "tid": 1610612744,
+                "di": "Pacific",
+                "co": "West",
+                "sta": "CA",
+                "ta": "GSW",
+                "tn": "Warriors",
+                "tc": "Golden State"
+            },
+            {
+                "tid": 1610612745,
+                "di": "Southwest",
+                "co": "West",
+                "sta": "TX",
+                "ta": "HOU",
+                "tn": "Rockets",
+                "tc": "Houston"
+            },
+            {
+                "tid": 1610612746,
+                "di": "Pacific",
+                "co": "West",
+                "sta": "CA",
+                "ta": "LAC",
+                "tn": "Clippers",
+                "tc": "LA"
+            },
+            {
+                "tid": 1610612747,
+                "di": "Pacific",
+                "co": "West",
+                "sta": "CA",
+                "ta": "LAL",
+                "tn": "Lakers",
+                "tc": "Los Angeles"
+            },
+            {
+                "tid": 1610612748,
+                "di": "Southeast",
+                "co": "East",
+                "sta": "FL",
+                "ta": "MIA",
+                "tn": "Heat",
+                "tc": "Miami"
+            },
+            {
+                "tid": 1610612749,
+                "di": "Central",
+                "co": "East",
+                "sta": "WI",
+                "ta": "MIL",
+                "tn": "Bucks",
+                "tc": "Milwaukee"
+            },
+            {
+                "tid": 1610612750,
+                "di": "Northwest",
+                "co": "West",
+                "sta": "MN",
+                "ta": "MIN",
+                "tn": "Timberwolves",
+                "tc": "Minnesota"
+            },
+            {
+                "tid": 1610612751,
+                "di": "Atlantic",
+                "co": "East",
+                "sta": "NY",
+                "ta": "BKN",
+                "tn": "Nets",
+                "tc": "Brooklyn"
+            },
+            {
+                "tid": 1610612752,
+                "di": "Atlantic",
+                "co": "East",
+                "sta": "NY",
+                "ta": "NYK",
+                "tn": "Knicks",
+                "tc": "New York"
+            },
+            {
+                "tid": 1610612753,
+                "di": "Southeast",
+                "co": "East",
+                "sta": "FL",
+                "ta": "ORL",
+                "tn": "Magic",
+                "tc": "Orlando"
+            },
+            {
+                "tid": 1610612754,
+                "di": "Central",
+                "co": "East",
+                "sta": "IN",
+                "ta": "IND",
+                "tn": "Pacers",
+                "tc": "Indiana"
+            },
+            {
+                "tid": 1610612755,
+                "di": "Atlantic",
+                "co": "East",
+                "sta": "PA",
+                "ta": "PHI",
+                "tn": "76ers",
+                "tc": "Philadelphia"
+            },
+            {
+                "tid": 1610612756,
+                "di": "Pacific",
+                "co": "West",
+                "sta": "AZ",
+                "ta": "PHX",
+                "tn": "Suns",
+                "tc": "Phoenix"
+            },
+            {
+                "tid": 1610612757,
+                "di": "Northwest",
+                "co": "West",
+                "sta": "OR",
+                "ta": "POR",
+                "tn": "Trail Blazers",
+                "tc": "Portland"
+            },
+            {
+                "tid": 1610612758,
+                "di": "Pacific",
+                "co": "West",
+                "sta": "CA",
+                "ta": "SAC",
+                "tn": "Kings",
+                "tc": "Sacramento"
+            },
+            {
+                "tid": 1610612759,
+                "di": "Southwest",
+                "co": "West",
+                "sta": "TX",
+                "ta": "SAS",
+                "tn": "Spurs",
+                "tc": "San Antonio"
+            },
+            {
+                "tid": 1610612760,
+                "di": "Northwest",
+                "co": "West",
+                "sta": "OK",
+                "ta": "OKC",
+                "tn": "Thunder",
+                "tc": "Oklahoma City"
+            },
+            {
+                "tid": 1610612761,
+                "di": "Atlantic",
+                "co": "East",
+                "sta": "ON",
+                "ta": "TOR",
+                "tn": "Raptors",
+                "tc": "Toronto"
+            },
+            {
+                "tid": 1610612762,
+                "di": "Northwest",
+                "co": "West",
+                "sta": "UT",
+                "ta": "UTA",
+                "tn": "Jazz",
+                "tc": "Utah"
+            },
+            {
+                "tid": 1610612763,
+                "di": "Southwest",
+                "co": "West",
+                "sta": "TN",
+                "ta": "MEM",
+                "tn": "Grizzlies",
+                "tc": "Memphis"
+            },
+            {
+                "tid": 1610612764,
+                "di": "Southeast",
+                "co": "East",
+                "sta": "DC",
+                "ta": "WAS",
+                "tn": "Wizards",
+                "tc": "Washington"
+            },
+            {
+                "tid": 1610612765,
+                "di": "Central",
+                "co": "East",
+                "sta": "MI",
+                "ta": "DET",
+                "tn": "Pistons",
+                "tc": "Detroit"
+            },
+            {
+                "tid": 1610612766,
+                "di": "Southeast",
+                "co": "East",
+                "sta": "NC",
+                "ta": "CHA",
+                "tn": "Hornets",
+                "tc": "Charlotte"
+            }
+        ]
+    }
+}

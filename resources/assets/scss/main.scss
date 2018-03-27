@@ -1,0 +1,104 @@
+@import 'mixins/team-colors.scss';
+@import 'mixins/positioning.scss';
+html,
+body {
+    height: 100%;
+    background-color: #293237;
+    color: #fff;
+    position: relative;
+}
+
+header {
+    margin-top: 50px;
+}
+
+footer {
+    text-align: center;
+    background-color: #424a4f60;
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.radios {
+    label {
+        display: block;
+    }
+}
+
+.team {
+    p {
+        width: 235px;
+    }
+}
+
+.nav-item {
+    cursor: pointer;
+}
+
+.player-menu {
+    padding: 50px;
+    border: gray 1px solid;
+    border-radius: 0px 7px 7px 7px;
+    background-color: rgba(255, 255, 255, 0.116);
+    margin-top: 0px;
+    display: none;
+    &.active {
+        display: block;
+    }
+}
+
+.player-wrap {
+    padding: 10px;
+    .player {
+        padding: 5px 15px 0px 15px;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 7px;
+        background-color: rgba(255, 255, 255, 0.116);
+        font-size: 1.2em;
+        p {
+            display: inline-block;
+            &:nth-of-type(2) {
+                float: right;
+                color: rgb(177, 177, 177)
+            }
+        }
+        img {
+            @include centered-relative(true, false);
+            width: 80%;
+        }
+    }
+}
+
+.btn-primary {
+    background-color: #41b0ac;
+    border-color: #41b0ac;
+    cursor: pointer;
+    &:hover {
+        border-color: #628c8c;
+        background-color: #628c8c;
+    }
+}
+
+.nav {
+    width: 100%;
+    border-color: #424a4f;
+    z-index: 10;
+    border-bottom: none;
+    .nav-link {
+        border-bottom: none;
+        color: gray;
+        &:hover,
+        &:focus {
+            border-color: transparent;
+            color: white;
+        }
+        &.active {
+            background-color: #424a4f;
+            border-color: gray;
+            color: white;
+        }
+    }
+}
