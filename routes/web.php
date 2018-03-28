@@ -4,7 +4,7 @@
 // ─── PLAYERS ───────────────────────────────────────────────────────────────────────
 //
     
-Route::get('/', 'PageController@players');
+Route::get('/', 'PageController@playerSearch');
 
 //
 // ─── LEADERBOARDS ───────────────────────────────────────────────────────────────────

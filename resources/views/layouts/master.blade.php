@@ -20,7 +20,7 @@
 <body>
     <div class="container">
         <header>
-            @include('includes.header')
+            @include('modules.header')
         </header>
         <section id="filters">
             @include('modules.filters')
@@ -29,8 +29,8 @@
             @yield('content')
         </section>
     </div>
-    <footer>
-        @include('includes.footer')
-    </footer>
+    {{--  <footer>
+        @include('modules.footer')
+    </footer>  --}}
 </body>
 </html>

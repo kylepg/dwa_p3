@@ -4,21 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Route;
-
 class PageController extends Controller
 {
     private $playerJson;
     private $playerInfo;
     private $teamJson;
-    public $teamInfo;
-
-    private $filters;
-    private $currentPath;
-    private $active = [
-        'players'      => '',
-        'leaderboards' => ''
-    ];
+    private $teamInfo;
 
     //
     // ─── CONSTRUCT ──────────────────────────────────────────────────────────────────
@@ -26,50 +17,45 @@ class PageController extends Controller
 
     public function __construct()
     {
-        // Define data for filters view
-        $currentPath = Route::getFacadeRoot()->current()->uri();
-        if ($currentPath == 'leaderboards') {
-            $this->active['leaderboards'] = 'active';
-        } else {
-            $this->active['players'] = 'active';
-        }
+        $this->playerJson = file_get_contents(database_path('/players.json'));
+        $this->playerInfo = json_decode($this->playerJson, true);
+        $this->teamJson = file_get_contents(database_path('/teams.json'));
+        $this->teamInfo = json_decode($this->teamJson);
     }
 
     //
     // ─── PLAYER SEARCH ──────────────────────────────────────────────────────────────
     //
    
-    public function players($playerSearch = '', $teamSearch = 'all')
+    public function playerSearch(Request $request)
     {
-        $this->playerJson = file_get_contents('./database/players.json');
-        $this->playerInfo = json_decode($this->playerJson);
-        $this->teamJson = file_get_contents('./database/teams.json');
-        $this->teamInfo = json_decode($this->teamJson);
-        $this->teamInfo = $this->teamInfo->tms->t;
-
+        $playerSearch = $request->input('player', '');
+        $teamSearch = $request->input('team', 'all');
         $results = [];
 
-        if ($playerSearch !== '') {
+        if ($playerSearch) {
             foreach ($this->playerInfo as $player) {
-                if (strtolower($player[1]) == strtolower($playerSearch)) {
-                    array_push($this->results, $player);
-                }
-            }
-        }
-
-        if ($teamSearch !== '') {
-            $this->results = $this->playerInfo;
-        } else {
-            foreach ($this->playerInfo as $index => $player) {
-                if ($player[3] == $teamSearch) {
+                $name = explode(" ", strtolower($player[1]));
+                array_push($name, strtolower($player[1]));
+                if (in_array($playerSearch, $name)) {
                     array_push($results, $player);
                 }
             }
+        } else {
+            if ($teamSearch === 'all') {
+                $results = $this->playerInfo;
+            } else {
+                foreach ($this->playerInfo as $index => $player) {
+                    if ($player[3] == $teamSearch) {
+                        array_push($results, $player);
+                    }
+                }
+            }
         }
-
-        return view('pages.players')->with([
-            'active'  => $this->active,
-            'players' => $results
+        return view('pages.playerSearch')->with([
+            'teamInfo'     => $this->teamInfo->tms->t,
+            'playerSearch' => $playerSearch,
+            'results'      => $results
         ]);
     }
 
@@ -77,10 +63,10 @@ class PageController extends Controller
     // ─── LEADERBOARDS ───────────────────────────────────────────────────────────────
     //
 
-    // public function leaderboards()
-    // {
-    //     return view('pages.leaderboards')->with([
-    //         'active' => $this->activeTab
-    //     ]);
-    // }
+    public function leaderboards()
+    {
+        return view('pages.leaderboards')->with([
+            'teamInfo'     => $this->teamInfo->tms->t,
+        ]);
+    }
 }

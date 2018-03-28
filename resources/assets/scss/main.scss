@@ -1,5 +1,10 @@
 @import 'mixins/team-colors.scss';
 @import 'mixins/positioning.scss';
+
+/*===============================
+=            GENERAL            =
+===============================*/
+
 html,
 body {
     height: 100%;
@@ -8,8 +13,27 @@ body {
     position: relative;
 }
 
+.btn-primary {
+    background-color: #41b0ac;
+    border-color: #41b0ac;
+    cursor: pointer;
+    &:hover {
+        border-color: #628c8c;
+        background-color: #628c8c;
+    }
+}
+
+
+/*==============================
+=            HEADER            =
+===============================*/
+
 header {
     margin-top: 50px;
+    margin-left: -15px;
+    h2 {
+        color: #61aeab
+    }
 }
 
 footer {
@@ -23,28 +47,6 @@ footer {
 
 .radios {
     label {
-        display: block;
-    }
-}
-
-.team {
-    p {
-        width: 235px;
-    }
-}
-
-.nav-item {
-    cursor: pointer;
-}
-
-.player-menu {
-    padding: 50px;
-    border: gray 1px solid;
-    border-radius: 0px 7px 7px 7px;
-    background-color: rgba(255, 255, 255, 0.116);
-    margin-top: 0px;
-    display: none;
-    &.active {
         display: block;
     }
 }
@@ -72,15 +74,10 @@ footer {
     }
 }
 
-.btn-primary {
-    background-color: #41b0ac;
-    border-color: #41b0ac;
-    cursor: pointer;
-    &:hover {
-        border-color: #628c8c;
-        background-color: #628c8c;
-    }
-}
+
+/*===============================
+=            FILTERS            =
+===============================*/
 
 .nav {
     width: 100%;
@@ -101,4 +98,55 @@ footer {
             color: white;
         }
     }
+    .nav-item {
+        cursor: pointer;
+    }
+    .reset-button {
+        right: 0px;
+        position: absolute;
+        input {
+            font-size: 14px;
+            height: 35px;
+            background: none;
+            border-color: #f76f67;
+        }
+    }
 }
+
+.filter-block {
+    border: gray 1px solid;
+    border-radius: 7px 7px 7px 7px;
+    background-color: rgba(255, 255, 255, 0.116);
+    margin-top: 0px;
+    display: none;
+    position: relative;
+    &.active {
+        display: block;
+    }
+    &:nth-child(2) {
+        border-radius: 0px 7px 7px 7px;
+    }
+    &_divider {
+        height: 100%;
+        width: 1px;
+        background-color: gray;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+    .team {
+        p {
+            width: 235px;
+        }
+    }
+}
+
+
+/*=====================================
+=            PLAYER SEARCH            =
+======================================*/
+
+
+/*====================================
+=            LEADERBOARDS            =
+=====================================*/
