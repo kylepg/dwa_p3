@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <!-- METDATA -->
     <title>{{ config('app.name') }}</title>
@@ -17,20 +18,23 @@
     <!-- P4 CSS -->
     <script src="/js/p3.min.js"></script>
 </head>
+
 <body>
     <div class="container">
         <header>
-            @include('modules.header')
+    @include('modules.header')
         </header>
         <section id="filters">
-            @include('modules.filters')
+    @include('modules.filters')
         </section>
-        <section id="results">
+        <section class="row" id="results">
             @yield('content')
         </section>
     </div>
-    {{--  <footer>
-        @include('modules.footer')
-    </footer>  --}}
+    {{--
+    <footer>
+    @include('modules.footer')
+    </footer> --}}
 </body>
+
 </html>

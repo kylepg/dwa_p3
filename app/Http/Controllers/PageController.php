@@ -15,47 +15,108 @@ class PageController extends Controller
     // ─── CONSTRUCT ──────────────────────────────────────────────────────────────────
     //
 
-    public function __construct()
+    public function __construct(Request $request)
     {
         $this->playerJson = file_get_contents(database_path('/players.json'));
         $this->playerInfo = json_decode($this->playerJson, true);
         $this->teamJson = file_get_contents(database_path('/teams.json'));
         $this->teamInfo = json_decode($this->teamJson);
+        $this->query = [
+            'player'          => $request->input('player', ''),
+            'team'            => $request->input('team', 'all'),
+            'stat'            => $request->input('stat', 'pts'),
+            'additionalStats' => $request->has('additionalStats'),
+        ];
     }
 
+    //
+    // ─── SORTING FUNCTION ───────────────────────────────────────────────────────────
+    //
+
+    private function sort_by_order($a, $b)
+    {
+        $statIndex;
+        switch ($this->query['stat']) {
+            case 'pts':
+                $statIndex = 29;
+                break;
+            case 'fgp':
+                $statIndex = 12;
+                break;
+            case '3pp':
+                $statIndex = 15;
+                break;
+            case 'ftp':
+                $statIndex = 18;
+                break;
+            case 'reb':
+                $statIndex = 21;
+                break;
+            case 'ast':
+                $statIndex = 22;
+                break;
+            case 'stl':
+                $statIndex = 24;
+                break;
+            case 'blk':
+                $statIndex = 25;
+                break;
+        }
+        $result = 0;
+        if ($a[$statIndex] < $b[$statIndex]) {
+            $result = 1;
+        } elseif ($a[$statIndex] > $b[$statIndex]) {
+            $result = -1;
+        }
+        return $result;
+    }
+
+    //
+    // ─── SEARCH RESULTS  ────────────────────────────────────────────────────
+    //
+
+    private function searchResults(Request $request)
+    {
+        $results = [];
+
+        if ($this->query['player']) {
+            foreach ($this->playerInfo as $player) {
+                $name = explode(" ", strtolower($player[1]));
+                array_push($name, strtolower($player[1]));
+                if (in_array($this->query['player'], $name)) {
+                    array_push($results, $player);
+                }
+            }
+        } else {
+            if ($this->query['team'] === 'all') {
+                $results = $this->playerInfo;
+            } else {
+                $this->query['player'] = '';
+                foreach ($this->playerInfo as $index => $player) {
+                    if ($player[3] == $this->query['team']) {
+                        array_push($results, $player);
+                    }
+                }
+            }
+        }
+        return $results;
+    }
+        
     //
     // ─── PLAYER SEARCH ──────────────────────────────────────────────────────────────
     //
    
     public function playerSearch(Request $request)
     {
-        $playerSearch = $request->input('player', '');
-        $teamSearch = $request->input('team', 'all');
-        $results = [];
-
-        if ($playerSearch) {
-            foreach ($this->playerInfo as $player) {
-                $name = explode(" ", strtolower($player[1]));
-                array_push($name, strtolower($player[1]));
-                if (in_array($playerSearch, $name)) {
-                    array_push($results, $player);
-                }
-            }
-        } else {
-            if ($teamSearch === 'all') {
-                $results = $this->playerInfo;
-            } else {
-                foreach ($this->playerInfo as $index => $player) {
-                    if ($player[3] == $teamSearch) {
-                        array_push($results, $player);
-                    }
-                }
-            }
-        }
+        $results = $this->searchResults($request);
         return view('pages.playerSearch')->with([
-            'teamInfo'     => $this->teamInfo->tms->t,
-            'playerSearch' => $playerSearch,
-            'results'      => $results
+            'teamInfo'      => $this->teamInfo->tms->t,
+            'teamInfo2'     => $this->teamInfo->tms->t,
+            'playerSearch'  => $this->query['player'],
+            'teamSearch'    => $this->query['team'],
+            'statType'      => $this->query['stat'],
+            'additionalStats'     => $this->query['additionalStats'],
+            'results'       => $results
         ]);
     }
 
@@ -63,10 +124,19 @@ class PageController extends Controller
     // ─── LEADERBOARDS ───────────────────────────────────────────────────────────────
     //
 
-    public function leaderboards()
+    public function leaderboards(Request $request)
     {
+        $results = $this->searchResults($request);
+        uasort($results, [$this,'sort_by_order']);
         return view('pages.leaderboards')->with([
-            'teamInfo'     => $this->teamInfo->tms->t,
+            'teamInfo'            => $this->teamInfo->tms->t,
+            'teamInfo2'           => $this->teamInfo->tms->t,
+            'playerSearch'        => $this->query['player'],
+            'teamSearch'          => $this->query['team'],
+            'statType'            => $this->query['stat'],
+            'additionalStats'     => $this->query['additionalStats'],
+            'results'             => array_values($results)
         ]);
     }
 }
+?>

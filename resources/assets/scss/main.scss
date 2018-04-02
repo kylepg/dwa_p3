@@ -1,6 +1,5 @@
 @import 'mixins/team-colors.scss';
 @import 'mixins/positioning.scss';
-
 /*===============================
 =            GENERAL            =
 ===============================*/
@@ -23,6 +22,13 @@ body {
     }
 }
 
+a:hover {
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
 
 /*==============================
 =            HEADER            =
@@ -53,12 +59,13 @@ footer {
 
 .player-wrap {
     padding: 10px;
+    min-height: 242px;
     .player {
         padding: 5px 15px 0px 15px;
         border-width: 1px;
         border-style: solid;
         border-radius: 7px;
-        background-color: rgba(255, 255, 255, 0.116);
+        background-color: rgba(255, 255, 255, 0.05);
         font-size: 1.2em;
         p {
             display: inline-block;
@@ -73,7 +80,6 @@ footer {
         }
     }
 }
-
 
 /*===============================
 =            FILTERS            =
@@ -104,6 +110,16 @@ footer {
     .reset-button {
         right: 0px;
         position: absolute;
+        margin-right: 10px;
+        &:focus {
+            border-color: transparent;
+        }
+        &:hover {
+            input {
+                background-color: #674848;
+                border-color: #f76f67;
+            }
+        }
         input {
             font-size: 14px;
             height: 35px;
@@ -134,6 +150,11 @@ footer {
         left: 50%;
         transform: translate(-50%, 0%);
     }
+    &_divider-h {
+        height: 1px;
+        width: 100%;
+        background-color: gray;
+    }
     .team {
         p {
             width: 235px;
@@ -141,12 +162,80 @@ footer {
     }
 }
 
+.stat-button-wrap {
+    label {
+        margin: 5px 10px 0px 0px;
+        background: none;
+        &.selected {
+            background-color: #61aeab;
+            border-color: #61aeab;
+        }
+    }
+    input {
+        visibility: hidden;
+        display: none;
+    }
+}
 
 /*=====================================
 =            PLAYER SEARCH            =
 ======================================*/
 
-
 /*====================================
 =            LEADERBOARDS            =
 =====================================*/
+
+.leaderboard-display {
+    overflow-x: scroll;
+    width: 100%;
+    border-radius: 7px;
+    border: 1px solid gray;
+    table {
+        background-color: #424a4f;
+        padding: 5px 15px 0px 15px;
+        font-size: .9em;
+        width: calc(100% + (1160px - 100%));
+    }
+    tr {
+        padding: 10px;
+        height: 40px;
+        &:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+    }
+    th {
+        &.ranked {
+            background-color: #333b3f;
+        }
+        &:nth-child(2) {
+            text-align: left;
+        }
+    }
+    td {
+        &:first-child {
+            color: gray
+        }
+        &:nth-child(2) {
+            border-right: 1px solid gray;
+            max-width: 175px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: left;
+        }
+        &.ranked {
+            background-color: #ffffff1c;
+        }
+    }
+    th,
+    td {
+        padding: 10px;
+        text-align: center;
+    }
+    thead {
+        background-color: #263036;
+        border: 1px solid #gray;
+    }
+}
+
+.filter-permode {}

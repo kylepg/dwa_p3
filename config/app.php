@@ -8,7 +8,7 @@ return [
 
     'tabs' => [
         '/'             => 'Player Search',
-        'leaderboards' => 'Leaderboards'
+        'leaderboards'  => 'Leaderboards'
     ],
 
     /*
@@ -217,6 +217,7 @@ return [
         'URL'          => Illuminate\Support\Facades\URL::class,
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
+        'Helpers'      => App\Helpers::class,
 
     ],
 
