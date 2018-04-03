@@ -226,7 +226,8 @@ footer {
         }
         &:nth-child(2) {
             border-right: 1px solid gray;
-            max-width: 110px;
+            max-width: 160px;
+            min-width: 150px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;

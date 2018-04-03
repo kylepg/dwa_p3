@@ -28,6 +28,7 @@ class PageController extends Controller
             'additionalStats' => $request->has('additionalStats'),
         ];
     }
+    
 
     //
     // ─── SORTING FUNCTION ───────────────────────────────────────────────────────────
@@ -78,13 +79,13 @@ class PageController extends Controller
     private function searchResults(Request $request)
     {
         $results = [];
-
+        $this->playerInfo = array_values($this->playerInfo);
         if ($this->query['player']) {
-            foreach ($this->playerInfo as $player) {
+            foreach ($this->playerInfo as $index => $player) {
                 $name = explode(" ", strtolower($player[1]));
                 array_push($name, strtolower($player[1]));
                 if (in_array($this->query['player'], $name)) {
-                    array_push($results, $player);
+                    $results[$index] = $player;
                 }
             }
         } else {
@@ -94,7 +95,7 @@ class PageController extends Controller
                 $this->query['player'] = '';
                 foreach ($this->playerInfo as $index => $player) {
                     if ($player[3] == $this->query['team']) {
-                        array_push($results, $player);
+                        $results[$index] = $player;
                     }
                 }
             }
@@ -126,8 +127,8 @@ class PageController extends Controller
 
     public function leaderboards(Request $request)
     {
+        uasort($this->playerInfo, [$this,'sort_by_order']);
         $results = $this->searchResults($request);
-        uasort($results, [$this,'sort_by_order']);
         return view('pages.leaderboards')->with([
             'teamInfo'            => $this->teamInfo->tms->t,
             'teamInfo2'           => $this->teamInfo->tms->t,
@@ -135,7 +136,7 @@ class PageController extends Controller
             'teamSearch'          => $this->query['team'],
             'statType'            => $this->query['stat'],
             'additionalStats'     => $this->query['additionalStats'],
-            'results'             => array_values($results)
+            'results'             => $results
         ]);
     }
 }
