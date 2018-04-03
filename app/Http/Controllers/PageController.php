@@ -84,7 +84,7 @@ class PageController extends Controller
             foreach ($this->playerInfo as $index => $player) {
                 $name = explode(" ", strtolower($player[1]));
                 array_push($name, strtolower($player[1]));
-                if (in_array($this->query['player'], $name)) {
+                if (in_array(strtolower($this->query['player']), $name)) {
                     $results[$index] = $player;
                 }
             }

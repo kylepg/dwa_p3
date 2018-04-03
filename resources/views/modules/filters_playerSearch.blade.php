@@ -28,7 +28,7 @@
             <div class="filter-block_divider hidden-sm-down"></div>
             <div class="col-md-6 col-sm-12 py-5 px-5">
                 <div class="col-12">
-                    <h3 class="">Show roster</h3>
+                    <h3 class="">Find a roster</h3>
                 </div>
                 <div class="col-md-12">
                     <select name="team" id="playersearch-roster" onChange="document.getElementById('playersearch-player').value = ''; this.form.submit()"
