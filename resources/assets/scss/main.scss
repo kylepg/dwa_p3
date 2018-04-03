@@ -1,5 +1,6 @@
 @import 'mixins/team-colors.scss';
 @import 'mixins/positioning.scss';
+$primary: #61aeab;
 /*===============================
 =            GENERAL            =
 ===============================*/
@@ -13,12 +14,12 @@ body {
 }
 
 .btn-primary {
-    background-color: #41b0ac;
-    border-color: #41b0ac;
+    background-color: $primary;
+    border-color: $primary;
     cursor: pointer;
     &:hover {
-        border-color: #628c8c;
-        background-color: #628c8c;
+        border-color: $primary;
+        background-color: $primary;
     }
 }
 
@@ -30,13 +31,17 @@ a:hover {
     display: none;
 }
 
+.container {
+    min-height: 100vh;
+    /* will cover the 100% of viewport */
+}
+
 /*==============================
 =            HEADER            =
 ===============================*/
 
 header {
     margin-top: 50px;
-    margin-left: -15px;
     h2 {
         color: #61aeab
     }
@@ -46,9 +51,12 @@ footer {
     text-align: center;
     background-color: #424a4f60;
     padding: 20px;
-    position: absolute;
     width: 100%;
     bottom: 0;
+    border-top: 1px solid $primary;
+    a {
+        color: $primary;
+    }
 }
 
 .radios {
@@ -59,7 +67,6 @@ footer {
 
 .player-wrap {
     padding: 10px;
-    min-height: 242px;
     .player {
         padding: 5px 15px 0px 15px;
         border-width: 1px;
@@ -89,6 +96,7 @@ footer {
     width: 100%;
     border-color: #424a4f;
     z-index: 10;
+    position: relative;
     border-bottom: none;
     .nav-link {
         border-bottom: none;
@@ -152,6 +160,7 @@ footer {
     }
     &_divider-h {
         height: 1px;
+        padding: 0;
         width: 100%;
         background-color: gray;
     }
@@ -167,8 +176,8 @@ footer {
         margin: 5px 10px 0px 0px;
         background: none;
         &.selected {
-            background-color: #61aeab;
-            border-color: #61aeab;
+            background-color: $primary;
+            border-color: $primary;
         }
     }
     input {
@@ -234,8 +243,6 @@ footer {
     }
     thead {
         background-color: #263036;
-        border: 1px solid #gray;
+        border-bottom: 1px solid gray;
     }
 }
-
-.filter-permode {}

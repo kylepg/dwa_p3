@@ -4,7 +4,7 @@
 @endsection
  
 @section('content')
-<div class="row player-display mt-4">
+<div class="row player-display m-0">
     @if(count($results) == 0)
     <p>'{{ $playerSearch }}' not found.</p>
     @else @foreach($results as $player)

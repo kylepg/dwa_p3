@@ -1,21 +1,19 @@
-<div class="row mt-5">
-    <ul class="nav nav-tabs col-12">
-        @foreach(config('app.tabs') as $request => $tab)
-        <a href="{{ $request }}">
-            <li class="nav-item">
-                <div class="nav-link {{ Request::is($request) ? 'active' : '' }}" data-menu="{{ $tab }}">{{ $tab }}</div>
-            </li>
-        </a>
-        @endforeach
-        <a class="reset-button" href="{{ Request::path() }}">
-            <input type='submit' value='Reset' class='btn btn-primary ml-sm-3'>
-        </a>
-    </ul>
-</div>
+<ul class="nav nav-tabs">
+    @foreach(config('app.tabs') as $request => $tab)
+    <a href="{{ $request }}">
+        <li class="nav-item">
+            <div class="nav-link {{ Request::is($request) ? 'active' : '' }}" data-menu="{{ $tab }}">{{ $tab }}</div>
+        </li>
+    </a>
+    @endforeach
+    <a class="reset-button" href="{{ Request::path() }}">
+        <input type='submit' value='Reset' class='btn btn-primary ml-sm-3'>
+    </a>
+</ul>
 <form method='GET'>
     <!-- START FORM -->
-    <div id="leaderboards" class="row filter-block {{ Request::is('leaderboards') ? 'active' : '' }}">
-        <div class="row">
+    <div id="leaderboards" class="filter-block {{ Request::is('leaderboards') ? 'active' : '' }}">
+        <div class="row m-0">
             <div class="col-md-6 col-sm-12 py-5 px-5" style="border-right: 1px solid gray">
                 <div class="col-12">
                     <h3 class="">Find a player</h3>
@@ -41,10 +39,10 @@
                     </select>
                 </div>
             </div>
-            <div class="col-12 hidden-sm-down">
+            <div class="col-12 hidden-sm-down p-0">
                 <div class="filter-block_divider-h"></div>
             </div>
-            <div class="col-sm-12 col-md-9 py-5 px-5 filter-permode">
+            <div class="col-12 py-5 px-5 filter-permode">
                 <h3 class="">Rank by</h3>
                 <div class="stat-button-wrap">
                     <label class="btn btn-primary {{ $statType == 'pts' ? 'selected ' : ' ' }}">PTS<input onChange="this.form.submit()" name='stat' type='radio' value='pts' {{ $statType == 'pts' ? 'checked ' : ' ' }}/></label>

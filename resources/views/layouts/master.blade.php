@@ -24,17 +24,17 @@
         <header>
     @include('modules.header')
         </header>
-        <section id="filters">
+        <section id="filters" class="mt-4">
             @yield('filters')
         </section>
-        <section class="row" id="results">
+        <section id="results" class="mt-4">
             @yield('content')
         </section>
     </div>
-    {{--
-    <footer>
+
+    <footer class="mt-5">
     @include('modules.footer')
-    </footer> --}}
+    </footer>
 </body>
 
 </html>
