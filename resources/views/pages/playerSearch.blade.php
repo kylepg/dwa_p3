@@ -1,4 +1,8 @@
 @extends('layouts.master') 
+@section('filters')
+    @include('modules.filters_playerSearch')
+@endsection
+ 
 @section('content')
 <div class="row player-display mt-4">
     @if(count($results) == 0)

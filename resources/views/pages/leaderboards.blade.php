@@ -1,4 +1,8 @@
 @extends('layouts.master') 
+@section('filters')
+    @include('modules.filters_leaderboards')
+@endsection
+ 
 @section('content')
 <div class="leaderboard-display mt-4">
     <table>

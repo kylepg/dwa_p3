@@ -25,7 +25,7 @@
     @include('modules.header')
         </header>
         <section id="filters">
-    @include('modules.filters')
+            @yield('filters')
         </section>
         <section class="row" id="results">
             @yield('content')
