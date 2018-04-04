@@ -31,7 +31,7 @@
                     <h3 class="">Find a roster</h3>
                 </div>
                 <div class="col-md-12">
-                    <select name="team" id="playersearch-roster" onChange="document.getElementById('playersearch-player').value = ''; this.form.submit()"
+                    <select name="team" id="playersearch-roster" onChange="document.getElementById('playersearch-player').value = null; this.form.submit()"
                         class="w-50" style="height: 35px">
                         <option value="all">All teams</option>
                         @foreach ($teamInfo as $teamInfo => $teamObj)

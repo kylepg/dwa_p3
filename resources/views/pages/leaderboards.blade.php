@@ -36,33 +36,33 @@
         <tbody>
             @if(count($results) == 0)
             <tr>
-                <td colspan="100">'{{ $playerSearch }}' not found.</td>
+                <td class="error" colspan="100">'{{ $playerSearch }}' not found.</td>
             </tr>
             @else @foreach($results as $index => $player)
             <tr id="{{ str_replace(' ', '', $player[1]) }}">
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $player[1] }}</td>
                 <td class="{{ $player[3] }}-light">{{ $player[3] }}</td>
-                <td>{{ $player[4] }}</td>
-                <td>{{ $player[5] }}</td>
-                <td>{{ Helpers::force_decimal($player[9], 1) }}</td>
-                <td class="{{ $statType == 'pts' ? 'ranked' : '' }}">{{ $player[29] }}</td>
-                <td class="{{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[10],1) }}</td>
-                <td class="{{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[11],1) }}</td>
+                <td class="additional-stat">{{ $player[4] }}</td>
+                <td class="additional-stat">{{ $player[5] }}</td>
+                <td class="additional-stat">{{ Helpers::force_decimal($player[9], 1) }}</td>
+                <td class="{{ $statType == 'pts' ? 'ranked' : '' }}">{{ Helpers::force_decimal($player[29],1) }}</td>
+                <td class="additional-stat {{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[10],1) }}</td>
+                <td class="additional-stat {{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[11],1) }}</td>
                 <td class="{{ $statType == 'fgp' ? 'ranked' : '' }}">{{ Helpers::percentage($player[12], 1) }}</td>
-                <td class="{{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[13],1) }}</td>
-                <td class="{{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[14],1) }}</td>
+                <td class="additional-stat {{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[13],1) }}</td>
+                <td class="additional-stat {{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[14],1) }}</td>
                 <td class="{{ $statType == '3pp' ? 'ranked' : '' }}">{{ Helpers::percentage($player[15],1) }}</td>
-                <td class="{{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[16],1) }}</td>
-                <td class="{{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[17],1) }}</td>
+                <td class="additional-stat {{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[16],1) }}</td>
+                <td class="additional-stat {{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[17],1) }}</td>
                 <td class="{{ $statType == 'ftp' ? 'ranked' : '' }}">{{ Helpers::percentage($player[18],1) }}</td>
-                <td class="{{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[19],1) }}</td>
-                <td class="{{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[20],1) }}</td>
+                <td class="additional-stat {{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[19],1) }}</td>
+                <td class="additional-stat {{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[20],1) }}</td>
                 <td class="{{ $statType == 'reb' ? 'ranked' : '' }}">{{ Helpers::force_decimal($player[21],1) }}</td>
                 <td class="{{ $statType == 'ast' ? 'ranked' : '' }}">{{ Helpers::force_decimal($player[22],1) }}</td>
                 <td class="{{ $statType == 'stl' ? 'ranked' : '' }}">{{ Helpers::force_decimal($player[24],1) }}</td>
                 <td class="{{ $statType == 'blk' ? 'ranked' : '' }}">{{ Helpers::force_decimal($player[25],1) }}</td>
-                <td class="{{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[23],1) }}</td>
+                <td class="additional-stat {{ $additionalStats ? '' : 'hidden' }}">{{ Helpers::force_decimal($player[23],1) }}</td>
             </tr>
             @endforeach @endif
         </tbody>

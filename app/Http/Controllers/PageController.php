@@ -31,7 +31,7 @@ class PageController extends Controller
     
 
     //
-    // ─── SORTING FUNCTION ───────────────────────────────────────────────────────────
+    // ─── SORT BY ORDER FUNCTION ───────────────────────────────────────────────────────────
     //
 
     private function sort_by_order($a, $b)

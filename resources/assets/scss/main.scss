@@ -1,6 +1,7 @@
 @import 'mixins/team-colors.scss';
 @import 'mixins/positioning.scss';
 $primary: #61aeab;
+$red: #f76f67;
 /*===============================
 =            GENERAL            =
 ===============================*/
@@ -33,7 +34,10 @@ a:hover {
 
 .container {
     min-height: 100vh;
-    /* will cover the 100% of viewport */
+}
+
+.error {
+    color: $red !important;
 }
 
 /*==============================
@@ -125,14 +129,15 @@ footer {
         &:hover {
             input {
                 background-color: #674848;
-                border-color: #f76f67;
+                border-color: $red;
+                ;
             }
         }
         input {
             font-size: 14px;
             height: 35px;
             background: none;
-            border-color: #f76f67;
+            border-color: $red;
         }
     }
 }
@@ -235,6 +240,9 @@ footer {
         }
         &.ranked {
             background-color: #ffffff1c;
+        }
+        &.additional-stat {
+            color: gray;
         }
     }
     th,

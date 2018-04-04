@@ -31,7 +31,6 @@
             @yield('content')
         </section>
     </div>
-
     <footer class="mt-5">
     @include('modules.footer')
     </footer>

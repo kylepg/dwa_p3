@@ -3,10 +3,10 @@
     @include('modules.filters_playerSearch')
 @endsection
  
-@section('content')
+@section('content') {{old('player')}}
 <div class="row player-display m-0">
     @if(count($results) == 0)
-    <p>'{{ $playerSearch }}' not found.</p>
+    <p class="error">'{{ $playerSearch }}' not found.</p>
     @else @foreach($results as $player)
     <div class="col-lg-4 col-sm-6 col-xs-12 player-wrap">
         <div class="player {{ $player[3] }}-border-light">
