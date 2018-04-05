@@ -127,17 +127,20 @@ footer {
             border-color: transparent;
         }
         &:hover {
-            input {
+            div {
                 background-color: #674848;
                 border-color: $red;
                 ;
             }
         }
-        input {
+        div {
             font-size: 14px;
             height: 35px;
             background: none;
             border-color: $red;
+            &:focus {
+                box-shadow: none;
+            }
         }
     }
 }

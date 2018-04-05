@@ -1,14 +1,16 @@
 <ul class="nav nav-tabs">
     @foreach(config('app.tabs') as $request => $tab)
-    <a href="{{ $request }}">
-        <li class="nav-item">
+    <li class="nav-item">
+        <a href="{{ $request }}">
             <div class="nav-link {{ Request::is($request) ? 'active' : '' }}" data-menu="{{ $tab }}">{{ $tab }}</div>
-        </li>
-    </a>
+        </a>
+    </li>
     @endforeach
-    <a class="reset-button" href="{{ Request::path() }}">
-        <input type='submit' value='Reset' class='btn btn-primary ml-sm-3'>
-    </a>
+    <li>
+        <a class="reset-button" href="{{ Request::path() }}">
+            <div class='btn btn-primary ml-sm-3'>Reset</div>
+        </a>
+    </li>
 </ul>
 <form method='GET'>
     <!-- START FORM -->
