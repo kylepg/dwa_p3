@@ -6,9 +6,11 @@
         </a>
     </li>
     @endforeach
-    <a class="reset-button" href="{{ Request::path() }}">
-        <div class='btn btn-primary ml-sm-3'>Reset</div>
-    </a>
+    <li>
+        <a class="reset-button" href="{{ Request::path() }}">
+            <div class='btn btn-primary ml-sm-3'>Reset</div>
+        </a>
+    </li>
 </ul>
 <form method='GET'>
     <!-- START FORM -->
