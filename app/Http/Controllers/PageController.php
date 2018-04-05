@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Log;
 
 class PageController extends Controller
 {
@@ -73,7 +74,7 @@ class PageController extends Controller
     }
 
     //
-    // ─── SEARCH RESULTS  ────────────────────────────────────────────────────
+    // ─── SEARCH RESULTS ────────────────────────────────────────────────────
     //
 
     private function searchResults(Request $request)
@@ -137,6 +138,33 @@ class PageController extends Controller
             'statType'            => $this->query['stat'],
             'additionalStats'     => $this->query['additionalStats'],
             'results'             => $results
+        ]);
+    }
+
+    //
+    // ─── CONTACT ME ─────────────────────────────────────────────────────────────────
+    //
+
+    public function getUpdates(Request $request) 
+    {
+        $this->validate($request, [
+            'firstname' => 'required|alpha_dash',
+            'lastname' => 'required|alpha_dash',
+            'email' => 'required|email'
+        ]);
+
+        # EXIT.... Redirect
+
+        # Eventually, code will go here to take the form data
+        # and create a new book in the database...
+
+        Log::info('ADDED TO MAILING LIST - First name:' . $request->input('firstname') . ' Last name:' . $request->input('lastname'));
+
+        return redirect()->back()->with([
+            'success' => 'true'
+        ])->withInput([
+            $request->input('firstname'),
+            $request->input('email')
         ]);
     }
 }

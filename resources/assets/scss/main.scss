@@ -40,6 +40,65 @@ a:hover {
     color: $red !important;
 }
 
+/*===================================
+=            FORM OVERLAY           =
+====================================*/
+
+.form-overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    background-color: rgba(33, 33, 33, 0.75);
+    z-index: 100;
+    display: none;
+    &.active {
+        display: block;
+    }
+    .notification-form {
+        @include centered(-50%, -50%);
+        border: 1px solid gray;
+        border-radius: 7px;
+        background-color: #293237;
+        form {
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+        input[type=text] {
+            display: block;
+            width: 100%;
+            font-size: 1.3rem;
+            padding: 3px;
+            color: #fff;
+            background-color: rgba(255, 255, 255, .2);
+            border: 1px solid gray;
+            &:focus {
+                outline: $primary auto 5px;
+            }
+        }
+        input[type=submit] {
+            @include centered-relative(true, false);
+        }
+    }
+    img {
+        position: absolute;
+        width: 20px;
+        right: 15px;
+        top: 15px;
+        opacity: .4;
+        &:hover {
+            cursor: pointer;
+            opacity: 0.9
+        }
+    }
+    .success-message {}
+}
+
 /*==============================
 =            HEADER            =
 ===============================*/
@@ -60,6 +119,12 @@ footer {
     border-top: 1px solid $primary;
     a {
         color: $primary;
+        &:hover,
+        &:active,
+        &:focus {
+            color: #61aeab;
+            opacity: .8;
+        }
     }
 }
 

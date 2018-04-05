@@ -21,6 +21,7 @@
 
 <body>
     <div class="container">
+        <p>rdsr @if(session('success')) {{ 'worked' }} @endif </p>
         <header>
     @include('modules.header')
         </header>
@@ -34,6 +35,7 @@
     <footer class="mt-5">
     @include('modules.footer')
     </footer>
+    @include('modules.form-overlay')
 </body>
 
 </html>
