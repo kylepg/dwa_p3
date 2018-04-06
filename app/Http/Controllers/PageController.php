@@ -30,7 +30,6 @@ class PageController extends Controller
         ];
     }
     
-
     //
     // ─── SORT BY ORDER FUNCTION ───────────────────────────────────────────────────────────
     //
@@ -142,7 +141,7 @@ class PageController extends Controller
     }
 
     //
-    // ─── CONTACT ME ─────────────────────────────────────────────────────────────────
+    // ─── GET UPDATES  ─────────────────────────────────────────────────────────────────
     //
 
     public function getUpdates(Request $request) 
@@ -153,18 +152,17 @@ class PageController extends Controller
             'email' => 'required|email'
         ]);
 
-        # EXIT.... Redirect
+        #
+        #
+        # Code for adding user to the email list in the database would go here.
+        # For now we'll just log the entry,
+        #
+        #
 
-        # Eventually, code will go here to take the form data
-        # and create a new book in the database...
+        Log::info('ADDED TO MAILING LIST - ' . $request->input('firstname') . ' ' . $request->input('lastname') . ' ' . $request->input('email'));
 
-        Log::info('ADDED TO MAILING LIST - First name:' . $request->input('firstname') . ' Last name:' . $request->input('lastname'));
-
-        return redirect()->back()->with([
-            'success' => 'true'
-        ])->withInput([
-            $request->input('firstname'),
-            $request->input('email')
+        return redirect()->back()->withInput()->with([
+            'success' => true
         ]);
     }
 }

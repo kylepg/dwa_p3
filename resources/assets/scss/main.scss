@@ -1,6 +1,7 @@
 @import 'mixins/team-colors.scss';
 @import 'mixins/positioning.scss';
 $primary: #61aeab;
+$primary-light: lighten( $primary, 10%);
 $red: #f76f67;
 /*===============================
 =            GENERAL            =
@@ -19,8 +20,8 @@ body {
     border-color: $primary;
     cursor: pointer;
     &:hover {
-        border-color: $primary;
-        background-color: $primary;
+        border-color: $primary-light;
+        background-color: $primary-light;
     }
 }
 
@@ -96,7 +97,6 @@ a:hover {
             opacity: 0.9
         }
     }
-    .success-message {}
 }
 
 /*==============================
@@ -110,21 +110,15 @@ header {
     }
 }
 
-footer {
-    text-align: center;
-    background-color: #424a4f60;
-    padding: 20px;
-    width: 100%;
-    bottom: 0;
-    border-top: 1px solid $primary;
-    a {
-        color: $primary;
-        &:hover,
-        &:active,
-        &:focus {
-            color: #61aeab;
-            opacity: .8;
-        }
+.newsletter-button {
+    right: 20px;
+    top: 5px;
+    position: absolute;
+    color: $primary;
+    &:hover,
+    &:active,
+    &:focus {
+        color: $primary-light;
     }
 }
 
@@ -153,6 +147,27 @@ footer {
         img {
             @include centered-relative(true, false);
             width: 80%;
+        }
+    }
+}
+
+/*==============================
+=            FOOTER            =
+===============================*/
+
+footer {
+    text-align: center;
+    background-color: #424a4f60;
+    padding: 20px;
+    width: 100%;
+    bottom: 0;
+    border-top: 1px solid $primary;
+    a {
+        color: $primary;
+        &:hover,
+        &:active,
+        &:focus {
+            color: $primary-light;
         }
     }
 }
@@ -258,10 +273,6 @@ footer {
         display: none;
     }
 }
-
-/*=====================================
-=            PLAYER SEARCH            =
-======================================*/
 
 /*====================================
 =            LEADERBOARDS            =

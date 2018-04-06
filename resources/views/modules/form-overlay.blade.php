@@ -17,7 +17,7 @@
                 <input type='submit' class="btn btn-primary mt-4 col-xs-push-3ml-sm-3 " value='Submit'>
             </form>
             @if (session('success'))
-            <p class="success-message">Thank you! A notification will be sent to {{ $email }}</p>
+            <p class="success-message">Thank you! A notification will be sent to {{ old('email') }}</p>
             @endif
         </div>
     </div>

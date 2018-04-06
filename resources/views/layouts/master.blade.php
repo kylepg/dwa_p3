@@ -21,7 +21,6 @@
 
 <body>
     <div class="container">
-        <p>rdsr @if(session('success')) {{ 'worked' }} @endif </p>
         <header>
     @include('modules.header')
         </header>

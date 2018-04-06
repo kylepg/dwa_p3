@@ -3,7 +3,7 @@
     @include('modules.filters_playerSearch')
 @endsection
  
-@section('content') {{old('player')}}
+@section('content')
 <div class="row player-display m-0">
     @if(count($results) == 0)
     <p class="error">'{{ $playerSearch }}' not found.</p>
